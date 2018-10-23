@@ -1,0 +1,3 @@
+#include <bits/stdc++.h>
+int a[105][105]; int dp[105][105];
+int sum(int i,int j,int n){ if(i>n) return 0; if(dp[i][j]!=-1) return dp[i][j]; return dp[i][j]=std::max(sum(i+1,j,n)+a[i+1][j],sum(i+1,j+1,n)+a[i+1][j+1]);} main(){ int l; std::cin>>l; while(l--){ memset(dp,-1,sizeof(dp)); int n; std::cin>>n; for (int i = 0; i < n; ++i){for (int j = 0; j <= i; ++j)std::cin>>a[i][j];} std::cout<<sum(0,0,n-1)+a[0][0]<<std::endl; }}
